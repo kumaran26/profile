@@ -1,3 +1,5 @@
+Hosting front end application to github pages
+
 1. Create a repository
 2. Add index.html
 3. Go to project settings
