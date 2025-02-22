@@ -1,0 +1,65 @@
+<div id="spin" class="flex-container hide">
+    <span class="loader"></span>
+</div>
+
+<header class="header_wrapper">
+    <div class="nav_wrapper">
+        <div id="logo" class="nav_logo">Black Kart</div>
+        <div id="menu_items" class="nav_menu">
+            <a class="link selectNavItems nav_items" href="javascript:void(0)">Kitchen tools</a>
+        </div>
+        <div class="account_user">
+            <i class="material-icons account_circle font-35">account_circle</i>
+            <div id="account_options" class="account_user_options">
+                <span class="account_user_border">Account</span></br>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="sub_nav">
+    <div id="sub_items" class="sub_items">
+        <a class="sub_item">Tools</a>
+        <i id="filter" class="material-icons filter_icon">filter_list</i>
+        <img id="checkout" class="checkout_icon" src="./assets/cart.svg"></img>
+    </div>
+    <div id="sub_items_mob" class="sub_nav_items">
+        <span>Selected - </span>
+        <a class="sub_nav_mob" id="sub_mob">Categories</a>
+        <i class="material-icons font-35">filter_list</i>
+    </div>
+</div>
+<div id="links_holder" class="sticky side-nav">
+    <div class="link"><a>Account</a></div>
+    <div class="link"><a >Orders</a></div>
+    <div class="checkout">
+        <button class="button button_primary width_150">Checkout</button>
+        <p>Delivery Monday</p>
+        <h3>In stock</h3>
+    </div>
+</div>
+
+<div class="container account_login1 account_popup">
+    <form action="index.html" class="popu opacity_1" method="post" >
+        <h1 class="card-heading">Login</h1>
+        <div class="form-content">
+            <input id="user-name" name="user-name" placeholder="user name" type="text" />
+            <input id="password" name="password" placeholder="password" type="password" /><br />
+            <div class="button button_primary">Log in</div>
+            <br />
+            <div class="signup-message">
+                <a href="#" class="font-12">Forgot your password?</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer class="footer">
+    <div id="scroll_top" class="footer-scroll">Back to top</div>
+</footer>
+<script>
+    $(".account_circle").click(function(){
+           $(".account_login1").show()
+    });
+</script>

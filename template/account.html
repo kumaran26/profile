@@ -1,0 +1,112 @@
+<div id="spin" class="flex-container hide">
+    <span class="loader"></span>
+</div>
+<div id="product_wrapper_data" style="height:auto;min-height:85vh;">
+    <div id="ham">
+        <div class="menu"></div>
+        <div class="menu"></div>
+        <div class="menu"></div>
+    </div>
+    <div class="visible hidden nav_items_wrapper">
+        <i class="material-icons icon_close font-35 f_right">close</i>
+        <a rv-each-item="navItems" href="javascript:void(0)" rv-click="selectNavItems()" class="link header_links">{item}</a></br>
+    </div>
+    <div class="visible hidden1 nav_items_wrapper_mob">
+        <a class="link nav_sub_item" href="">Kitchen and Dining</a></br>
+        <a class="link nav_sub_item" href="">Kitchen Storage and Containers</a></br>
+    </div>
+    <header class="header_wrapper">
+        <div class="nav_wrapper">
+            <div id="logo" class="nav_logo">Black Kart</div>
+            <div id="menu_items" class="nav_menu">
+                <a rv-each-item="navItems" class="link selectNavItems nav_items" href="javascript:void(0)">{item}</a>
+            </div>
+            <div class="account_user">
+                <i class="material-icons account_circle font-35">account_circle</i>
+                <div id="account_options" class="account_user_options">
+                    <span class="account_user_border">Account</span></br>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="sub_nav">
+        <div id="sub_items" class="sub_items">
+            <a rv-each-item="subItems" class="sub_item">{item}</a>
+            <i id="filter" class="material-icons filter_icon">filter_list</i>
+            <img id="checkout" class="checkout_icon" src="./assets/cart.svg"></img>
+        </div>
+        <div id="sub_items_mob" class="sub_nav_items">
+            <span>Selected - </span>
+            <a class="sub_nav_mob" id="sub_mob">Categories</a>
+            <i class="material-icons font-35">filter_list</i>
+        </div>
+    </div>
+    <div id="checkout_wrapper" class="purchase_alert checkout-section"></div>
+    <div class="content_section">
+        <div id="items_wrapper item_section">
+            <div class="row">
+                <div class="col-25"><label for="street">Name</label></div>
+                <div class="col-75 text_left">
+                    <p class="pad-l10" rv-text="a.name"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"><label for="street">Email</label></div>
+                <div class="col-75 text_left">
+                    <p class="pad-l10" rv-text="a.email"></p>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-25"><label for="old_password">Old Password</label></div>
+                <div class="col-50">
+                    <input class="input width_90percent" rv-value="account.old_password" type="text" id="old_password" name="old_password" placeholder="Old password">
+                    <i style="v-middle" class="material-icons">help</i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"><label for="new_password">New Password</label></div>
+                <div class="col-50">
+                    <input class="input width_90percent" rv-value="account.new_password" type="text" id="new_password" name="new_password" placeholder="New password">
+                    <i class="material-icons v-middle">help</i>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-25"><label for="street"></label></div>
+                <div class="col-50 text_left mar-l15">
+                    <p><span rv-text="a.street"></span>, <span rv-text="a.area"></span>, <span rv-text="a.country"></span></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"><label for="street">Street / Flat</label></div>
+                <div class="col-50">
+                    <input class="input width_90percent" rv-value="account.street" type="text" id="street" name="street" placeholder="Street / Flat">
+                    <i class="material-icons v-middle">help</i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"><label for="area">Area / locality</label></div>
+                <div class="col-50">
+                    <input rv-value="account.area" class="input width_90percent" type="text" id="area" name="area" placeholder="Area / Locality">
+                    <i class="material-icons v-middle">help</i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"><label for="country">Country</label></div>
+                <div class="col-50">
+                    <select class="input width_90percent" id="country" name="country"><option value="USA">USA</option></select>
+                    <i class="material-icons v-middle">help</i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25"></div>
+                <div class="col-50"><button class="button button_primary submit account_submit">Submit</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div id="scroll_top" class="footer-scroll">Back to top</div>
+</footer>

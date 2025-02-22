@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <script src="libs/require.js"></script>
+    <script src="main.js"></script>
+    <script src="pagebus.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="black-kart-global.css" rel="stylesheet">
+    <link href="black-kart-global-pws.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <head><title>Black-Kart</title></head>
+<body class="theme_white">
+    <div id="root"></div>
+    <div class="container account_login account_overlay" style="display: none;"></div>
+    <div class="container account_login1 account_popup" style="display: none;">
+        <form action="index.html" class="popup opacity_1" method="post" >
+            <h1 class="card-heading">Login</h1>
+            <div class="form-content">
+                <input id="user-name" name="user-name" placeholder="user name" type="text" />
+                <input id="password" name="password" placeholder="password" type="password" /><br />
+                <div class="button login-account button_primary">Log in</div>
+                <div class="button button_primary1">Hell</div>
+                <br />
+                <div class="signup-message">
+                    <a href="#" class="font-12">Forgot your password?</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+
+    $(document).ready(function(){
+
+  $(".login-account").click(function(){
+
+  $.ajax({
+   type: "POST",
+   url: "http://localhost:8081/login",
+   data: "username="+"345"+"&password="+"345",
+   success: function(html){
+        alert("logged in");
+    }
+  });
+
+
+
+
+
+  });
+
+  $(".button_primary1").click(function(){
+
+      $.ajax({
+    type: "GET",
+    url: "http://localhost:8081/hell",
+    crossDomain: true,
+    error: function (response) {
+        alert('Error: There was a problem processing your request, please refresh the browser and try again');
+    },
+    success: function (response) {
+        console.log(response);
+    }
+});
+});
+});
+
+    </script>
+    <script src="libs/frontendlibs.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<div id="spin" class="flex-container hide">
+    <span class="loader"></span>
+</div>
+<div id="product_wrapper_data" style="height:auto;min-height:85vh;">
+    <div id="ham">
+        <div class="menu"></div>
+        <div class="menu"></div>
+        <div class="menu"></div>
+    </div>
+    <div class="visible hidden nav_items_wrapper">
+        <i class="material-icons icon_close font-35 f_right">close</i>
+        <a rv-each-item="navItems" href="javascript:void(0)" rv-click="selectNavItems()" class="link header_links">{item}</a></br>
+    </div>
+    <div class="visible hidden1 nav_items_wrapper_mob">
+        <a class="link nav_sub_item" href="">Kitchen and Dining</a></br>
+        <a class="link nav_sub_item" href="">Kitchen Storage and Containers</a></br>
+    </div>
+    <header class="header_wrapper">
+        <div class="nav_wrapper">
+            <div id="logo" class="nav_logo">Black Kart</div>
+            <div id="menu_items" class="nav_menu">
+                <a rv-each-item="navItems" class="link selectNavItems nav_items" href="javascript:void(0)">{item}</a>
+            </div>
+            <div class="account_user">
+                <i class="material-icons account_circle font-35">account_circle</i>
+                <div id="account_options" class="account_user_options">
+                    <span class="account_user_border">Account</span></br>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="sub_nav">
+        <div id="sub_items" class="sub_items">
+            <a rv-each-item="subItems" class="sub_item">{item}</a>
+            <i id="filter" class="material-icons filter_icon">filter_list</i>
+            <img id="checkout" class="checkout_icon" src="./assets/cart.svg"></img>
+        </div>
+        <div id="sub_items_mob" class="sub_nav_items">
+            <span>Selected - </span>
+            <a class="sub_nav_mob" id="sub_mob">Categories</a>
+            <i class="material-icons font-35">filter_list</i>
+        </div>
+    </div>
+    <div class="purchase_alert purchase_info">
+        This item is already purchased !
+    </div>
+    <div id="product" class="product_display">
+        <div id="product_wrapper" class="product_wrapper_display">
+            <div id="img_holder" class="product_image_holder">
+                <div class="fixedElement" >
+                    <img class="image_wrapper width_100percent" src="./assets/kadai.jpg"/>
+                    <div class="image_display">
+                        <div class="holder_block">
+                            <img src="./assets/kadai.jpg" class="pro-image-small image_small">
+                        </div>
+                        <div class="holder_block">
+                            <img src="./assets/ad.jpeg" class="pro-image-small image_small">
+                        </div>
+                        <div class="holder_block">
+                            <img src="./assets/kadai.jpg" class="pro-image-small image_small">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pro_holder" class="product_details_holder">
+                <div class="mar-l15">
+                    <h2>{ a:data.name }</h2>
+                    <div class="mar-t-10">
+                        <i rv-each-a="b" class="material-icons icons_star">star</i>
+                        <i rv-each-a="b" class="material-icons icons_star_blank">star_border</i>
+                    <span>Ratings</span>
+                    </div>
+                    <hr/>
+                    <div>
+                        <p class="product_offer">-{a:data.offer}%</p>
+                        <span class="v-top">&#36;</span>
+                        <p class="product_price" rv-text="a:data.price"></p>
+                        <span class="v-top">00</span>
+                    </div>
+                    <p>MRP (Inclusive of all taxes)</p>
+                    <button type="button" class="button button_primary">Add to cart</button>
+                    <div class="horizontal_cards font_weight_bold">
+                        <div class="card">
+                            <span class="card_label">Save Extra</span> with 2 offers
+                        </div>
+                        <div class="card bordt-none">
+                            <span class="card_label">Gold:</span>Avail EMI on select customers for orders above ₹3000 Details
+                        </div>
+                        <div class="card bordt-none">
+                            <span class="card_label">Cards:</span> Avail EMI on select cards for orders above ₹3000 Details
+                        </div>
+                    </div>
+                    <p>
+                        <span class="description_label">Brand :</span>
+                        <span class="description_text">{a:data.brand}</span>
+                    </p>
+                    <p>
+                        <span class="description_label">Material :</span>
+                        <span class="description_text">{a:data.material}</span>
+                    </p>
+                    <p>
+                        <span class="description_label">Colour :</span>
+                        <span class="description_text">{a:data.color}</span>
+                    </p>
+                    <p>
+                        <span class="description_label">Capacity :</span>
+                        <span class="description_text"></span>
+                    </p>
+                    <p>
+                        <span class="description_label">Item Dimensions :</span>
+                        <span class="description_text">{a:data.size}</span></p>
+                    <p>
+                        <span class="description_label">Item Weight: </span>
+                        <span class="description_text"></span>
+                    </p>
+                    <p>
+                        <span class="description_label">Wattage</span>
+                        <span class="description_text"></span>
+                    </p>
+                    <p>
+                        <span class="description_label">Brand</span>
+                        <span class="description_text"></span>
+                    </p>
+                    <hr/>
+                    <h3 class="mar-t20">About this item</h3>
+                    <ul class="product_description">
+                        <li class="mar-b10">The classical mirror polish of the appearance makes your electric kettle unique and aesthetic, which can match any type of kitchen design and 360° swivel base is connected with standard power cord for safe usage and convenient storage</li>
+                        <li class="mar-b10">The electric kettle can be easily lifts from its swivel base for easy filling at the sink and graceful serving without the hassle of a power cord; it can also be returned to its power source from any direction, great for right and left-handed users</li>
+                        <li class="mar-b10">The cordless & BPA-Free electric kettle makes a striking presence on any kitchen counter or buffet in preparing and serving and it is easy for storage</li>
+                        <li class="mar-b10">This 1500W electric kettle has concealed heating elements and can boil up to 1.5 litres of water in 5 to 7 minutes, quicker and safer. Start your day with a cup of instant lemon tea, green tea, hot water</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="fea">
+                <h2>Featured items you may like</h2>
+                <div class="masterBox mar-t-25" >
+                    <div class="containerBox">
+                        <i class="material-icons arrow back">keyboard_arrow_left</i>
+                        <ul class="listBox">
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <img src="./assets/pan.jpg">
+                                </div>
+                                <div class="carousel_item_name">
+                                    Amazon Brand - Solimo Stainless Steel Basting/Serving Spoon Set (2 pieces)
+                                </div>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <i class="material-icons icons_star" >star</i>
+                                <p class="carousel_item_offer">Limited time deal</p>
+                                <span class="font-20">&#36;</span>
+                                <p class="carousel_item_price">399.00</p>
+                            </li>
+                        </ul>
+                        <i class="material-icons arrow forward">keyboard_arrow_right</i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>Product information</h2>
+                <table class="width_100percent" id="productInfo">
+                    <tbody>
+                        <tr>
+                            <td>Manufacturer</td>
+                            <td>Stovekraft Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Country of Origin</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Item model number</td>
+                            <td>14289</td>
+                        </tr>
+                        <tr>
+                            <td>Product Dimensions</td>
+                            <td>18.5 x 18.5 x 21.2 cm; 656 Grams</td>
+                        </tr>
+                        <tr>
+                            <td>ASIN</td>
+                            <td>B07WMS7TWB</td>
+                        </tr>
+                        <tr>
+                            <td>Item Weight</td>
+                            <td>656 g</td>
+                        </tr>
+                        <tr>
+                            <td>Item Dimensions LxWxH</td>
+                            <td>18.5 x 18.5 x 21.2 Centimeters</td>
+                        </tr>
+                        <tr>
+                            <td>Net Quantity</td>
+                            <td>1 Piece</td>
+                        </tr>
+                        <tr>
+                            <td>Included Components</td>
+                            <td>1 - Pigeon amaze electric kettle (1.5 Litre)</td>
+                        </tr>
+                        <tr>
+                            <td>Generic Name</td>
+                            <td>Electric kettle</td>
+                        </tr>
+                        <tr>
+                            <td>Best Sellers Rank</td>
+                            <td>#2 in Home & Kitchen (See Top 100 in Home & Kitchen) #1 in Electric Kettles</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h2>Product guides and documents</h2>
+                <a class="user_manual">User Manual (PDF)</a>
+            </div>
+            <div>
+                <h2>Customer questions & answers</h2>
+                <input id="question question_field" type="text" placeholder="Have a question"/>
+                <div>
+                    <div class="vote_arrows">
+                        <i class="material-icons vote_arrow_up">play_arrow</i>
+                        <i class="material-icons vote_arrow_down">play_arrow</i>
+                    </div>
+                    <div class="feedback_section">
+                        <div class="feedback_wrapper">
+                            <h4 class="display-inline">Question: </h4>
+                            <span class="question_color">Can i use it on gas stove in high flame????</span></br></br>
+                            <h4 class="display-inline">Answer: </h4>
+                            <span>Hahaha! Obviously hot games should come out. While cooking there is lot of pressure inside the cooker; sasdasdas sdf. </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="vote_arrows">
+                        <i class="material-icons vote_arrow_up">play_arrow</i>
+                        <i class="material-icons vote_arrow_down">play_arrow</i>
+                    </div>
+                    <div class="feedback_section">
+                        <div class="feedback_wrapper">
+                            <h4 class="display-inline">Question: </h4>
+                            <span class="question_color">Can i use it on gas stove in high flame????</span></br></br>
+                            <h4 class="display-inline">Answer: </h4>
+                            <span>Hahaha! Obviously hot games should come out. While cooking there is lot of pressure inside the cooker; sasdasdas sdf. </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="links_holder" class="sticky side-nav">
+            <div class="link"><a>Account</a></div>
+            <div class="link"><a >Orders</a></div>
+            <div class="checkout">
+                <button class="button button_primary width_150">Checkout</button>
+                <p>Delivery Monday</p>
+                <h3>In stock</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div id="scroll_top" class="footer-scroll">Back to top</div>
+</footer>
