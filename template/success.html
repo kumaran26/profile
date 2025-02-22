@@ -1,0 +1,77 @@
+<div id="spin" style="display: none;" class="flex-container">
+    <span class="loader"></span>
+</div>
+<div id="product_wrapper_data" style="height:auto;min-height:85vh;">
+    <div id="ham">
+        <div class="menu"></div>
+        <div class="menu"></div>
+        <div class="menu"></div>
+    </div>
+    <div class="visible hidden" style="display: none;top:0;bottom:0;height:100%; width:80%;border:1px solid black;position: absolute;background-color: lightgrey">
+        <i class="material-icons icon_close" style="font-size:36px; float: right;">close</i>
+        <a rv-each-item="navItems" href="javascript:void(0)" rv-click="selectNavItems()" class="link header_links">{item}</a></br>
+    </div>
+    <div class="visible hidden1" style="display: none;bottom:0;width:100%;height:40%; border:1px solid black;position: absolute;background-color: lightgrey">
+        <a class="link" href="" style="padding: 10px;text-decoration: none;color: grey; margin-right: 8px;">Kitchen and Dining</a></br>
+        <a class="link" href="" style="padding: 10px;text-decoration: none;color: grey; margin-right: 8px;">Kitchen Storage and Containers</a></br>
+    </div>
+    <header style="height: auto; border-bottom: 1px solid lightGrey;padding-bottom: 20px;padding-top: 20px;">
+        <div style="width:80%; margin:auto;">
+            <div id="logo" style="display:inline-block;width:10%;">Black Kart</div>
+            <div id="menu_items" style="width:70%;display:inline-block;margin-right: 80px;margin-left: 50px;font-size: 14px;">
+                <a rv-each-item="navItems" class="link selectNavItems" href="javascript:void(0)" style="text-decoration: none;color: grey; margin-right: 8px;">{item}</a>
+            </div>
+            <div style="width: 10%;display:inline-block;float:right;margin-right: 40px;margin-top: -40px;">
+                <i class="material-icons account_circle" style="font-size:36px">account_circle</i>
+                <div id="account_options" style="border:1px solid black;position:absolute;display:none;">
+                    <span style="border-bottom:1px solid black;">Account</span></br>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="height: 28px; border-bottom: 1px solid lightGrey;">
+        <div id="sub_items" style="margin-top: 10px;margin-left: auto;width: 80%;margin-right: auto;">
+            <a rv-each-item="subItems" style="padding: 12px;padding-bottom: 3px;">{item}</a>
+            <i id="filter" class="material-icons" style="font-size:36px;float:right;margin-top: -9px;">filter_list</i>
+            <img id="checkout" style="width:25px;float:right;margin-right: 10px;" src="./assets/cart.svg"></img>
+        </div>
+        <div id="sub_items_mob" style="display: none;margin-top: 10px;margin-left: auto;width: 80%;margin-right: auto;">
+            <span>Selected - </span>
+            <a style="background-color: lightgrey; padding: 12px;" id="sub_mob">Categories</a>
+            <i class="material-icons" style="font-size:36px">filter_list</i>
+        </div>
+    </div>
+
+    <div id="checkout_wrapper" class="wrapper">
+
+    </div>
+
+    <div class="display-content">
+        <div id="items_wrapper" class="display-wrapper">
+            <div class="mar-b40">
+                <h3 rv-text="message.status"></h3>
+                <h3 class="red-color" rv-text="message.alert"></h3>
+                <button class="button button_primary download width_20percent">Download</button>
+            </div>
+            <hr/>
+            <div class="mar-b40">
+                <h3>Shop more !</h3>
+                <button class="button button_secondary width_20percent">Shop</button>
+            </div>
+        </div>
+        <div id="links_holder" class="sticky side-nav">
+            <div class="link"><a>Account</a></div>
+            <div class="link"><a >Orders</a></div>
+            <div class="checkout">
+                <button class="button button_primary width_150">Checkout</button>
+                <p>Delivery Monday</p>
+                <h3>In stock</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div id="scroll_top" class="footer-scroll">Back to top</div>
+</footer>

@@ -1,0 +1,171 @@
+<div id="spin" class="flex-container hide">
+    <span class="loader"></span>
+</div>
+<div id="product_wrapper_data" style="height:auto;min-height:85vh;">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Address</h2>
+            </div>
+            <div class="modal-body pad-0">
+                <form class="max-width_100percent">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="street">Street / Flat</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="street" name="street" placeholder="Street / Flat">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="area">Area / locality</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="area" name="area" placeholder="Area / Locality">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="country">Country</label>
+                        </div>
+                        <div class="col-75">
+                            <select id="country" name="country">
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <input type="submit" class="changeAddress button button_primary" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="ham">
+        <div class="menu"></div>
+        <div class="menu"></div>
+        <div class="menu"></div>
+    </div>
+    <div class="visible hidden nav_items_wrapper">
+        <i class="material-icons icon_close font-35 f_right">close</i>
+        <a rv-each-item="navItems" href="javascript:void(0)" rv-click="selectNavItems()" class="link header_links">{item}</a></br>
+    </div>
+    <div class="visible hidden1 nav_items_wrapper_mob">
+        <a class="link nav_sub_item" href="">Kitchen and Dining</a></br>
+        <a class="link nav_sub_item" href="">Kitchen Storage and Containers</a></br>
+    </div>
+    <header class="header_wrapper">
+        <div class="nav_wrapper">
+            <div id="logo" class="nav_logo">Black Kart</div>
+            <div id="menu_items" class="nav_menu">
+                <a rv-each-item="navItems" class="link selectNavItems nav_items" href="javascript:void(0)">{item}</a>
+            </div>
+            <div class="account_user">
+                <i class="material-icons account_circle font-35">account_circle</i>
+                <div id="account_options" class="account_user_options">
+                    <span class="account_user_border">Account</span></br>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="sub_nav">
+        <div id="sub_items" class="sub_items">
+            <a rv-each-item="subItems" class="sub_item">{item}</a>
+            <i id="filter" class="material-icons filter_icon">filter_list</i>
+            <img id="checkout" class="checkout_icon" src="./assets/cart.svg"></img>
+        </div>
+        <div id="sub_items_mob" class="sub_nav_items">
+            <span>Selected - </span>
+            <a class="sub_nav_mob" id="sub_mob">Categories</a>
+            <i class="material-icons font-35">filter_list</i>
+        </div>
+    </div>
+    <div id="checkout_wrapper" class="purchase_alert checkout-section">
+        <div class="orders-section" rv-each-orders="orders.items">
+            <div class="width_20 display-inline-block">
+                <img class="image_wrapper width_100percent" src="kadai.jpg"/>
+            </div>
+            <div class="product-details-wrapper">
+                <h3 class="pad-l20 mar-t0">{orders.name}</h3>
+                <p class="pad-l20">{orders.brand}</p>
+                <p class="item-caption">FREE delivery by Wed, 17 Aug, 7:00 am - 3:00 pm</p>
+                <div class="quantity-counter pad-l20" rv-data-identification="orders.id">
+                    <button rv-on-click="incrementQuantity" class="increment pad-10">+</button>
+                    <input id="counter-value" class="value counter-field" type="number" value="1">
+                    <button rv-on-click="decrementQuantity" class="decrement pad-10">-</button>
+                </div>
+            </div>
+            <div class="product-details-price">
+                <h3 class="mar-t0">{orders.priceQuantity}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="content_wrapper">
+        <div id="items_wrapper" class="items_section">
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Summary</a></li>
+            </ul>
+           <h3>Please verify your order</h3>
+            <p>Delivery address :
+                <span rv-text="address.area"></span>,
+                <span rv-text="address.street"></span>,
+                <span rv-text="address.country"></span>
+            </p>
+            <div>
+                <i class="material-icons font-20">location_on</i>
+                <a href="javascript:void(0)" id="myBtn" class="change_address">change</a>
+            </div>
+            <div class="mar-t30 width_100percent" rv-each-orders="orders.items">
+                <div class="width_20percent display-inline-block">
+                    <img class="image_wrapper width_100percent" src="./assets/kadai.jpg"/>
+                </div>
+                <div class="product-details-wrapper">
+                    <h3 class="pad-l20 mar-t0">{orders.name}</h3>
+                    <p class="pad-l20">{orders.brand}</p>
+                    <p class="item-caption">FREE delivery by Wed, 17 Aug, 7:00 am - 3:00 pm</p>
+                    <div class="quantity-counter pad-l20" rv-data-identification="orders.id">
+                        <button id="counter-increment" rv-on-click="incrementQuantity" class="increment pad-10">+</button>
+                        <input id="counter-value" class="value counter-field" type="number" value="1">
+                        <button id="counter-decrement" rv-on-click="decrementQuantity" class="decrement pad-10">-</button>
+                    </div>
+                </div>
+                <div class="product-details-price">
+                    <h3 class="mar-t0">{orders.priceQuantity}</h3>
+                </div>
+            </div>
+            <h4>Optional :</h4>
+            <input type="checkbox"/> Add gift pack
+            <p><span class="font_weight_bold">Gift pack:</span> <span rv-text="disclaimer.gift"></span></p>
+            <div class="width_100percent">
+                <h4 class="total-price">Total price : </h4>
+                <h4 class="total-price-value">{totalPrice.val}</h4>
+            </div>
+            <hr />
+            <p rv-text="disclaimer.address"></p>
+            <p rv-text="disclaimer.time"></p>
+            <button class="button button_secondary width_20percent f_left">Back</button>
+            <button class="button button_primary width_20percent f_right">Place order</button>
+        </div>
+        <div id="links_holder" class="sticky side-nav">
+            <div class="link"><a>Account</a></div>
+            <div class="link"><a >Orders</a></div>
+            <div class="checkout">
+                <button class="button button_primary width_150">Checkout</button>
+                <p>Delivery Monday</p>
+                <h3>In stock</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div id="scroll_top" class="footer-scroll">Back to top</div>
+</footer>
