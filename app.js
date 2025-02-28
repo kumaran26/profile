@@ -130,7 +130,8 @@ define([
             //rivets.bind(this.el, {test: "asda"});
             //rivets.bind($('#user'), { user:user })
              var user = new Backbone.Model({name: 'kum'});
-             this.$el.html(templatee);
+             var templat = _.template(templatee);
+             this.$el.html(templat);
              var ell = document.getElementById('product_wrapper_data');
              //rivets.bind(ell, {user: this.model});
              var ss = {}//this.model.get("data").review;
