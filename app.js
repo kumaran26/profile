@@ -35,14 +35,15 @@ define([
 
         template: _.template(templatee),
 
-        selectNavItems: function(e){
-            if(e.target && e.target.text){
-                this.selectedSubItems = this.navSubItems[e.target.text]
-            }
-            this.render();
-        },
+        // selectNavItems: function(e){
+        //     if(e.target && e.target.text){
+        //         this.selectedSubItems = this.navSubItems[e.target.text]
+        //     }
+        //     this.render();
+        // },
 
         initialize: function() {
+            
             this.navItems = ["Kitchen and Dining", "Kitchen Storage and Containers",
                 "Furniture", "Fine Art", "Home Furnishing", "Bedroom Linen", "Home Decor",
                 "Garden and Outdoors", "Home Storage", "Indoor Lighting",
@@ -140,75 +141,75 @@ define([
                     aarr.push(i);
                 }
              }
-             console.log(aarr);
-             console.log("sdsfsssssss", ss)
-             console.log("sdsdssssdd", this.model )
-             $(document).ready(function(){
-                // Carousel Slider //
-                let elemWidth = ( 100 * parseFloat($('.listBox li').css('width')) / parseFloat($('.containerBox').parent().css('width')) ); // Width of each element
-                let elemPerPage = parseInt((100 / elemWidth)); // Elements per page
-                let marginLeft = 0;
-                let count = 0;
-                let totalElem = $('.listBox li').length; // Number of total elements
-                let numSlides = Math.ceil(totalElem / elemPerPage); // Number of slides
-                if ( totalElem > elemPerPage ) {
-                  $('.arrow.back').on('click', function(){ // Go back
-                    if ( marginLeft < 0 ) {
-                      count--;
-                      marginLeft = marginLeft + 100;
-                      $('ul.listBox').animate({
-                        marginLeft: marginLeft + "%"
-                      }, 1500);
-                    }
-                  });
-                  $('.arrow.forward').on('click', function(){ // Go forward
-                    count++;
-                    if ( count < numSlides ) {
-                      if ( marginLeft <= 0 ) {
-                        marginLeft = marginLeft - 100;
-                        $('ul.listBox').animate({
-                          marginLeft: marginLeft + "%"
-                        }, 1500);
-                      }
-                    } else {
-                      count--;
-                    }
-                  });
-                }
-                // Open infoBox //
-                for (let i = 0; i < $('.listBox li .content').length; i++) {
-                  $($('.listBox li .content')[i]).on('click', function(){
-                    $('.infoBox li').addClass("hidden");
-                    if( $($('.infoBox li')[i]).hasClass("hidden") ) {
-                      $($('.infoBox li')[i]).removeClass("hidden");
-                    } else {
-                      $($('.infoBox li')[i]).addClass("hidden");
-                    }
-                  });
-                }
-             });
+            //  console.log(aarr);
+            //  console.log("sdsfsssssss", ss)
+            //  console.log("sdsdssssdd", this.model )
+            //  $(document).ready(function(){
+            //     // Carousel Slider //
+            //     let elemWidth = ( 100 * parseFloat($('.listBox li').css('width')) / parseFloat($('.containerBox').parent().css('width')) ); // Width of each element
+            //     let elemPerPage = parseInt((100 / elemWidth)); // Elements per page
+            //     let marginLeft = 0;
+            //     let count = 0;
+            //     let totalElem = $('.listBox li').length; // Number of total elements
+            //     let numSlides = Math.ceil(totalElem / elemPerPage); // Number of slides
+            //     if ( totalElem > elemPerPage ) {
+            //       $('.arrow.back').on('click', function(){ // Go back
+            //         if ( marginLeft < 0 ) {
+            //           count--;
+            //           marginLeft = marginLeft + 100;
+            //           $('ul.listBox').animate({
+            //             marginLeft: marginLeft + "%"
+            //           }, 1500);
+            //         }
+            //       });
+            //       $('.arrow.forward').on('click', function(){ // Go forward
+            //         count++;
+            //         if ( count < numSlides ) {
+            //           if ( marginLeft <= 0 ) {
+            //             marginLeft = marginLeft - 100;
+            //             $('ul.listBox').animate({
+            //               marginLeft: marginLeft + "%"
+            //             }, 1500);
+            //           }
+            //         } else {
+            //           count--;
+            //         }
+            //       });
+            //     }
+            //     // Open infoBox //
+            //     for (let i = 0; i < $('.listBox li .content').length; i++) {
+            //       $($('.listBox li .content')[i]).on('click', function(){
+            //         $('.infoBox li').addClass("hidden");
+            //         if( $($('.infoBox li')[i]).hasClass("hidden") ) {
+            //           $($('.infoBox li')[i]).removeClass("hidden");
+            //         } else {
+            //           $($('.infoBox li')[i]).addClass("hidden");
+            //         }
+            //       });
+            //     }
+            //  });
              rivets?.bind( ell , { a : this.model ,
                 b : aarr,
                 navItems: this.navItems,
                 subItems: this.selectedSubItems
              } );
-             $('.account_login1').click(function() {
-                $(".account_login").hide();
-                $(".account_login1").hide();
-            });
-            $('.popup').click(function(e) {
-                e.stopPropagation();
-            });
-            $(".image_small").click(function(e){
-                console.log(e.target.src);
-                $("img.image_wrapper").attr('src', e.target.src)
-            })
+            //  $('.account_login1').click(function() {
+            //     $(".account_login").hide();
+            //     $(".account_login1").hide();
+            // });
+            // $('.popup').click(function(e) {
+            //     e.stopPropagation();
+            // });
+            // $(".image_small").click(function(e){
+            //     console.log(e.target.src);
+            //     $("img.image_wrapper").attr('src', e.target.src)
+            // })
           },
 
-          themee: function(){
-            $("body").removeClass("theme_white");
-            $("body").addClass("theme_black");
-          },
+          // themee: function(){
+          //   $("body").removeClass("theme_white");
+          //   $("body").addClass("theme_black");
+          // },
 
           attributes: {
             class: "test"
@@ -299,8 +300,8 @@ define([
           events: {
             "click .try": "tryLogin",
             "click .tryy": "tryLoginn",
-            "click .themee": "themee",
-            "click .selectNavItems": "selectNavItems",
+            //"click .themee": "themee",
+            //"click .selectNavItems": "selectNavItems",
             "click .account_circle": "showLogin",
             "click #education": "education",
             "click #skills": "skills",

@@ -1,5 +1,6 @@
 require.config({
     paths: {
+        'rivets': 'libs/rivets-min',
         'jquery': 'libs/jquery-min',
         'jquery-ui': 'libs/jquery-ui',
         'underscore': 'libs/underscore-min',
@@ -14,7 +15,7 @@ require.config({
         'account': 'models/account',
         'setAccount': 'models/setAccount',
         'cookwares': 'collections/cookwares',
-        'rivets': 'libs/rivets-min'
+        
     },
     shim: {
      'jquery-ui': {
