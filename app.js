@@ -4,13 +4,13 @@ define([
   'underscore',
   'backbone',
   'page',
-  'pagebus',
+  //'pagebus',
   'text!./template/product.html',
   'text!./template/success.html',
   'models/model',
   'rivets',
   './view/success',
-], function($, _$, _, Backbone, page, pagebus, templatee, tem, model, rivets, success){
+], function($, _$, _, Backbone, page, /*pagebus,*/ templatee, tem, model, rivets, success){
 
     rivets.adapters[':'] = {
       subscribe: function(obj, keypath, callback) {
@@ -54,14 +54,14 @@ define([
             this.selectedSubItems = [];
             this.model = new model();
             var self = this;
-            this.model.fetch({
-              success: function(r){
-                  self.render();
-                },
-                error: function(model, response) {
-                  self.render();
-                }
-             })
+            // this.model.fetch({
+            //   success: function(r){
+            //       self.render();
+            //     },
+            //     error: function(model, response) {
+            //       self.render();
+            //     }
+            //  })
             PageBus.subscribe('show_spinner', null, function(){
                 console.log("asdasdsdsd");
                 $("#spin").
@@ -109,7 +109,7 @@ define([
 
 
             });
-            //this.render();
+            this?.render();
         },
 
         tryLogin: function(){
@@ -187,7 +187,7 @@ define([
                   });
                 }
              });
-             rivets.bind( ell , { a : this.model ,
+             rivets?.bind( ell , { a : this.model ,
                 b : aarr,
                 navItems: this.navItems,
                 subItems: this.selectedSubItems
