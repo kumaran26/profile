@@ -6,7 +6,7 @@ define([
   'backbone',
   'page',
   'pagebus',
-  'text!./template/success.html',
+  'text!../template/success.html',
   'cookwares',
   'rivets'
 

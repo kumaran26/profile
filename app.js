@@ -5,7 +5,7 @@ define([
   'backbone',
   'page',
   'pagebus',
-  'text!./template/product.html',
+  'text!../template/product.html',
   'text!./template/success.html',
   'models/model',
   'rivets',
