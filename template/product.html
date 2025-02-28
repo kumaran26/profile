@@ -1,23 +1,61 @@
 <div id="spin" class="flex-container hide">
     <span class="loader"></span>
 </div>
-<div id="product_wrapper_data" style="height:auto;min-height:85vh;">
-    <div id="ham">
-        <div class="menu"></div>
-        <div class="menu"></div>
-        <div class="menu"></div>
-    </div>
-    <div class="visible hidden nav_items_wrapper">
+<div  style="width: 60%; margin: auto;">
+    <!-- height:auto;min-height:85vh;" id="product_wrapper_data" -->
+    <!-- <div class="visible hidden nav_items_wrapper">
         <i class="material-icons icon_close font-35 f_right">close</i>
         <a rv-each-item="navItems" href="javascript:void(0)" rv-click="selectNavItems()" class="link header_links">{item}</a></br>
     </div>
     <div class="visible hidden1 nav_items_wrapper_mob">
-        <a class="link nav_sub_item" href="">Kitchen and Dining</a></br>
+        <a class="link nav_sub_item" href="">Kitchen and Diningasdasda</a></br>
         <a class="link nav_sub_item" href="">Kitchen Storage and Containers</a></br>
+    </div> -->
+    <header>
+        <div style="display: flex; align-items: center; background-color: #00965e; height: 100px; color: white; font-weight: bold; font-size: large;">
+            <div style="margin-left: 50px; font-size: 25px;">KUMARAN</div>
+        </div>
+    </header>
+    <nav>
+        <div style="align-items: center; height: 50px; display: flex; justify-content: space-around; background-color: #00965e; border: 1px solid white">
+            <div id="overview" style="background-color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%; display: flex; justify-content: center;">
+                Overview
+            </div>
+            <div id="experience" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+                Experience
+            </div>
+            <div id="skills" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+                Skills
+            </div>
+            <div id="education" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+                Education
+            </div>
+            <div id="contact" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+                Contact
+            </div>
+        </div>
+    </nav>
+    <div style="background-color: white; display: flex; justify-content: space-between; flex-direction: row;">
+        <div style="width: 70%">
+            <div style="margin-top: 30px; margin-left: 30px; font-size: 20px;">Objective :</div>
+            <div style="margin-top: 20px; margin-left: 30px;">Over 10+ years of experience in IT,
+                Expertise in various phases of SDLC
+                including Requirement Analysis, coding
+                and unit testing. Provided support to
+                the production, deployment which
+                includes verifying the files that moved
+                to production, smoke test, provided
+                solution for the issues faced during
+                deployment as a primary point of
+                contact for Prod deployment</div>
+        </div>
+        <div style="width: 30%">
+            <img src="picture.png" height="500" />
+        </div>
     </div>
-    <header class="header_wrapper">
+    <!-- <header class="header_wrapper">
         <div class="nav_wrapper">
-            <div id="logo" class="nav_logo">Black Kart</div>
+            <div id="logo" class="nav_logo">Black Kartsdsd</div>
             <div id="menu_items" class="nav_menu">
                 <a rv-each-item="navItems" class="link selectNavItems nav_items" href="javascript:void(0)">{item}</a>
             </div>
@@ -29,8 +67,8 @@
                 </div>
             </div>
         </div>
-    </header>
-    <div class="sub_nav">
+    </header> -->
+    <!-- <div class="sub_nav">
         <div id="sub_items" class="sub_items">
             <a rv-each-item="subItems" class="sub_item">{item}</a>
             <i id="filter" class="material-icons filter_icon">filter_list</i>
@@ -41,11 +79,11 @@
             <a class="sub_nav_mob" id="sub_mob">Categories</a>
             <i class="material-icons font-35">filter_list</i>
         </div>
-    </div>
-    <div class="purchase_alert purchase_info">
+    </div> -->
+    <!-- <div class="purchase_alert purchase_info">
         This item is already purchased !
-    </div>
-    <div id="product" class="product_display">
+    </div> -->
+    <!-- <div id="producttt" class="product_display">
         <div id="product_wrapper" class="product_wrapper_display">
             <div id="img_holder" class="product_image_holder">
                 <div class="fixedElement" >
@@ -432,8 +470,20 @@
                 <h3>In stock</h3>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
-<footer class="footer">
-    <div id="scroll_top" class="footer-scroll">Back to top</div>
+<div style="width: 60%; margin: auto;">
+    <footer style="background-color: #f6f6f6;height: 65px;display: flex; 
+    flex-direction: row; justify-content: space-between;
+    align-items: center;">
+        <!-- class="footer" -->
+        <!-- <div id="scroll_top" class="footer-scroll">Back to top</div> -->
+        
+     <button style="margin-left: 20px;height:40px;color: #00965e; background-color: white;border: 1px solid #00965e;
+     border-radius: .5rem;font-size: 1rem;font-weight: 400;line-height: 1.5;
+     padding: .375rem .75rem;text-align: center;    vertical-align: middle;cursor: pointer;">Back</button>
+    <button style="margin-right: 20px;height:40px;color: white; background-color: #00965e;border: 1px solid #00965e;
+    border-radius: .5rem;font-size: 1rem;font-weight: 400;line-height: 1.5;
+    padding: .375rem .75rem;text-align: center;    vertical-align: middle;cursor: pointer;">Next</button>    
 </footer>
+</div>

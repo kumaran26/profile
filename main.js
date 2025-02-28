@@ -3,7 +3,7 @@ require.config({
         'jquery': 'libs/jquery-min',
         'jquery-ui': 'libs/jquery-ui',
         'underscore': 'libs/underscore-min',
-        'backbone': 'libs/backbone-min', // AMD support
+        'backbone': 'libs/backbone-min',
         'templates': '/templates',
         'text': 'libs/text',
         'pagebus': 'libs/pagebus',
@@ -23,7 +23,6 @@ require.config({
     'rivets': {
             deps: ['jquery'],
         },
-
     }
 });
 
@@ -38,11 +37,11 @@ require([
 
 ], function(app, landing, summary, success, account, order){
     //domReady(function () {
-        //new app();
+        new app();
         //new landing();
         //new summary();
         //new success();
-        new account();
+        //new account();
         //new order();
     //});
 });
