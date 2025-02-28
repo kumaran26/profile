@@ -6,7 +6,7 @@ define([
   'page',
   'pagebus',
   'text!./template/product.html',
-  'text!../template/success.html',
+  'text!./template/success.html',
   'models/model',
   'rivets',
   './view/success',
