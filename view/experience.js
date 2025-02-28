@@ -6,7 +6,7 @@ define([
     'backbone',
     'page',
     'pagebus',
-    'text!../template/landing.html',
+    'text!../template/experience.html',
     'cookwares',
     'rivets'
 
@@ -56,7 +56,8 @@ define([
 this.render();
         },
 
-        initialize: function() {
+        initialize: function(options) {
+          this.options = options;
             console.log("rv", rivets);
             this.navItems = ["Kitchen and Dining", "Kitchen Storage and Containers",
                 "Furniture", "Fine Art", "Home Furnishing", "Bedroom Linen", "Home Decor",
@@ -256,7 +257,8 @@ this.render(mini);
                 },
 
          render: function(filter){
-                this.$el.html(templatee)
+                //this.$el.html(templatee)
+                this.options.$("#main-content").html(templatee);
                 this.products = this.model.at(0).get('data');
                 this.products.forEach(function(e){
                     var view = parseInt(e.review);

@@ -6,11 +6,12 @@ define([
     'backbone',
     'page',
     'pagebus',
-    'text!../template/order.html',
-    'orders',
+    'text!../template/overview.html',
+    'account',
+    'setAccount',
     'rivets'
 
-], function($, _$, _, Backbone, page, pagebus, templatee, model, rivets){
+], function($, _$, _, Backbone, page, pagebus, templatee, model, setAccount, rivets){
 
 //Rivets Configuration with backbone
     rivets.adapters[':'] = {
@@ -43,47 +44,8 @@ define([
 this.render();
         },
 
-        documentDownload: function(){
-
-var request = new XMLHttpRequest();
-request.open("GET", "http://localhost:8081/document/order", true);
-request.responseType = "blob";
-request.onload = function (e) {
-    if (this.status === 200) {
-        // create `objectURL` of `this.response` : `.mp4` as `Blob`
-        var file = URL.createObjectURL(this.response);
-        var a = document.createElement("a");
-        a.href = file;
-        a.download = "order";
-        a.id = "download";
-        document.body.appendChild(a);
-        a.click();
-        // remove `a` following `Save As` dialog,
-        // `window` regains `focus`
-        //window.addEventListener("focus", refocus, false);
-    } else {
-        console.log("File download failed!")
-    }
-};
-request.send();
-        },
-
-
-        openPage: function(e){
-
-              var i, tabcontent, tablinks;
-              tabcontent = document.getElementsByClassName("tabcontent");
-              for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-              }
-              //var page = e.currentTarget.hasClass("")
-              var page = $(e.currentTarget).attr("data-range")
-              document.getElementById(page).style.display = "block";
-
-
-        },
-
-        initialize: function() {
+        initialize: function(options) {
+          this.options = options;
             console.log("rv", rivets);
             this.navItems = ["Kitchen and Dining", "Kitchen Storage and Containers",
                 "Furniture", "Fine Art", "Home Furnishing", "Bedroom Linen", "Home Decor",
@@ -93,12 +55,20 @@ request.send();
                 "Kitchen and Dining": ["Cookware", "Kitchen tools"],
                 "Kitchen Storage and Containers": ["Storage"]
             }
-
-
             this.selectedSubItems = [];
+            this.setAccount = new setAccount();
+            //this.setAccount.save();
             this.model = new model();
             var self = this;
             console.log("rvv", model);
+
+            this.account = {
+            "old_password": "",
+            "new_password": "",
+            "street": "",
+            "area": ""
+            };
+
             this.model.fetch({
                  success: function(r){
                      console.log("r", r)
@@ -165,6 +135,61 @@ request.send();
             //this.render();
         },
 
+saveAccount: function(){
+
+console.log(this.account)
+
+        var data =                         {
+                                  "id": 72,
+                                "name": "xxxx@yyyyssdsf.com",
+                                "email": "xxxx@yyyyssdsf.com",
+                                "oldPassword": this.account["old_password"],
+                                "password": this.account["new_password"],
+                                "street": this.account["street"],
+                                "area": this.account["area"],
+                                "country": "USA"
+                               }
+
+$.ajax({
+    url: 'http://localhost:8081/account/',
+    type: 'PUT',
+    contentType: 'application/json',
+    crossDomain: true,
+    data: JSON.stringify(data),
+    success: function(result) {
+        // Do something with the result
+       // alert("sdf");
+        console.log(result)
+    },
+    error: function(error){
+        alert("error")
+    }
+});
+
+this.account["old_password"] = "";
+this.account["new_password"] = "";
+this.account["street"] = "";
+this.account["area"] = "";
+
+//this.setAccount.save({
+//                         "id": 72,
+//                         "name": "xxxx@yyyy.com"
+//                       }, {
+//                       type: 'PUT',
+//                 success: function(r){
+//                     console.log("r", r)
+//                    // $("#dd").text(r.get("accountNonLocked"));
+//                     //this.indicator = r.get("accountNonLocked");
+//                     //if (r2.readyState != 4 || r2.status != 200) return;
+//                     //var errors = JSON.parse(r2.responseText);
+//                    self.render();
+//                 },error: function(model, response) {
+//                       console.log("aaa", model);
+//                       console.log("aa", response);
+//                      // self.render();
+//                   }
+//             },{patch: true})
+},
         tryLogin: function(){
             console.log("hello", templatee);
             $("#slide").slideUp();
@@ -227,12 +252,11 @@ request.send();
             //rivets.bind($('#user'), { user:user })
              var user = new Backbone.Model({name: 'kum'});
              console.log("sdf", user)
-             this.$el.html(templatee);
-             var ell = document.getElementById('product_wrapper_data');
+             //this.$el.html(templatee);
+             this.options.$("#main-content").html(templatee);
+             var ell = document.getElementById('main-content');
              //rivets.bind(ell, {user: this.model});
              var ss = this.model.get('data');//this.model.get("data").review;
-             var result = _.groupBy(ss,"status");
-             console.log(result);
 console.log("hello", ss)
              var aarr = [];
              if(ss){
@@ -245,28 +269,26 @@ console.log("hello", ss)
              console.log("sdsdssssdd", this.model )
              rivets.bind( ell , { a : this.model ,
                 b : aarr,
-                a : result,
+                a : ss,
                 navItems: this.navItems,
-                subItems: this.selectedSubItems
+                subItems: this.selectedSubItems,
+                account: this.account
              } );
-
-             $('.account_login1').click(function() {
-
-                                               $(".account_login").hide();
-                                                                             $(".account_login1").hide();
-
-                                           });
-
-                                           $('.popup').click(function(e) {
-                                               e.stopPropagation();
-                                           });
-
-             // Get the element with id="defaultOpen" and click on it
-             document.getElementById("defaultOpen").click();
 
              $("#scroll_top").click(function(){
                                            window.scrollTo(0, 0);
                                          });
+
+                                       $('.account_login1').click(function() {
+
+                                                                         $(".account_login").hide();
+                                                                                                       $(".account_login1").hide();
+
+                                                                     });
+
+                                                                     $('.popup').click(function(e) {
+                                                                         e.stopPropagation();
+                                                                     });
                   $("#checkout").click(function(){
                                                              $("#checkout_wrapper").toggle();
                                                            });
@@ -297,28 +319,21 @@ console.log("hello", ss)
               },
 
               showLogin: function(){
-                              $(".account_login").show();
-                              $(".account_login1").show();
-                              var height = $("#root").height();
+                                            $(".account_login").show();
+                                            $(".account_login1").show();
+                                            var height = $("#root").height();
 
-              $(".account_login").css("height", height);
-                            },
-
-                            submitLogin: function(){
-                                    $.get("/login", function(data, status){
-                                        alert("Data: " + data + "\nStatus: " + status);
-                                      });
-                            },
+                            $(".account_login").css("height", height);
+                                          },
 
           events: {
                       "click .try":          "tryLogin",
-                  "click .tryy":          "tryLoginn",
+                      "click .tryy":          "tryLoginn",
                       "click .themee": "themee",
                       "click .selectNavItems": "selectNavItems",
                       "click .download": "documentDownload",
-                      "click .tablink": "openPage",
-                      "click .account_circle": "showLogin",
-                      "click .login-account": "submitLogin"
+                      "click .submit": "saveAccount",
+                      "click .account_circle": "showLogin"
                     }
 
     });

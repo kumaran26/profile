@@ -6,8 +6,8 @@ define([
     'backbone',
     'page',
     'pagebus',
-    'text!../template/summary.html',
-    'cookwares',
+    'text!../template/skills.html',
+    'orders',
     'rivets'
 
 ], function($, _$, _, Backbone, page, pagebus, templatee, model, rivets){
@@ -29,14 +29,6 @@ define([
       }
     }
 
-    rivets.formatters["args"] = function (fn) {
-            var args = Array.prototype.slice.call(arguments, 1);
-            return function () {
-                return fn.apply(null, args);
-
-            };
-        };
-
 
     var firstView = Backbone.View.extend({
         el: '#root',
@@ -51,75 +43,48 @@ define([
 this.render();
         },
 
-        incrementQuantity: function(item){
-            console.log($(item.currentTarget).parent());
-            //count++
-            //$(item.currentTarget).next().val()
-            //counterValue.setAttribute("value", count);
+        documentDownload: function(){
 
-            var counter = $(item.currentTarget).parent();
-            var id = $(counter).attr("data-identification");
-            var counterField = $(item.currentTarget).next();
-            var counterFieldValue = $(counterField).val();
-            console.log(counterField, counterFieldValue);
-if(parseInt(counterFieldValue) !== NaN){
-    $(counterField).val(parseInt(counterFieldValue) + 1)
-    var self = this;
-                this.orders.items.forEach(function(order){
-                    if(order.id === id){
-                        order.priceQuantity = order.price * (parseInt(counterFieldValue) + 1);
-                        self.totalPrice.val = self.totalPrice.val + parseInt(order.price);
-                        //self.render();
-                        //$(counterField).val(parseInt(counterFieldValue) + 1)
-                    }
-                });
-}
-
-            console.log($(counter).attr("data-identification"));
+var request = new XMLHttpRequest();
+request.open("GET", "http://localhost:8081/document/order", true);
+request.responseType = "blob";
+request.onload = function (e) {
+    if (this.status === 200) {
+        // create `objectURL` of `this.response` : `.mp4` as `Blob`
+        var file = URL.createObjectURL(this.response);
+        var a = document.createElement("a");
+        a.href = file;
+        a.download = "order";
+        a.id = "download";
+        document.body.appendChild(a);
+        a.click();
+        // remove `a` following `Save As` dialog,
+        // `window` regains `focus`
+        //window.addEventListener("focus", refocus, false);
+    } else {
+        console.log("File download failed!")
+    }
+};
+request.send();
         },
 
-        decrementQuantity: function(item){
-                    console.log($(item.currentTarget).parent());
-                    //count++
-                    //$(item.currentTarget).next().val()
-                    //counterValue.setAttribute("value", count);
 
-                    var counter = $(item.currentTarget).parent();
-                    var id = $(counter).attr("data-identification");
-                    var counterField = $(item.currentTarget).prev();
-                    var counterFieldValue = $(counterField).val();
-                    console.log(counterField, counterFieldValue);
-if(parseInt(counterFieldValue) !== NaN && parseInt(counterFieldValue) > 1){
-    $(counterField).val(parseInt(counterFieldValue) - 1)
-    var self = this;
-                        this.orders.items.forEach(function(order){
-                            if(order.id === id){
-                                order.priceQuantity = order.price * (parseInt(counterFieldValue) - 1);
-                                self.totalPrice.val = self.totalPrice.val - parseInt(order.price);
-                            }
-                        });
-}
+        openPage: function(e){
 
-if(parseInt(counterFieldValue) == 1){
-    var obj = this.orders.items.slice();
-    var self = this;
-    this.orders.items.forEach(function(order){
-                                if(order.id === id){
-                                    self.totalPrice.val =  self.totalPrice.val - parseInt(order.price);
-                                }
-                            });
-
-   obj = obj.filter((item) => item.id !== id);
-   this.orders.items = obj;
-   //this.render();
-}
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              //var page = e.currentTarget.hasClass("")
+              var page = $(e.currentTarget).attr("data-range")
+              document.getElementById(page).style.display = "block";
 
 
+        },
 
-                    console.log($(counter).attr("data-identification"));
-                },
-
-        initialize: function() {
+        initialize: function(options) {
+          this.options = options;
             console.log("rv", rivets);
             this.navItems = ["Kitchen and Dining", "Kitchen Storage and Containers",
                 "Furniture", "Fine Art", "Home Furnishing", "Bedroom Linen", "Home Decor",
@@ -129,41 +94,12 @@ if(parseInt(counterFieldValue) == 1){
                 "Kitchen and Dining": ["Cookware", "Kitchen tools"],
                 "Kitchen Storage and Containers": ["Storage"]
             }
+
+
             this.selectedSubItems = [];
             this.model = new model();
             var self = this;
             console.log("rvv", model);
-            this.orders = {"items": [{
-                "name": "pressure cooker by Favourite Outer Lid Non Induction Aluminium Pressure Cooker, 3 Litres, Silver",
-                "brand": "Butterfly 1",
-                "price": "2000",
-                "id": "1",
-                "priceQuantity": "2000"
-            },{
-                              "name": "pressure cooker by Favourite Outer Lid Non Induction Aluminium Pressure Cooker, 3 Litres, Silver",
-                              "brand": "Butterfly 2",
-                              "price": "2000",
-                              "id": "2",
-                              "priceQuantity": "2000"
-                          },{
-                                            "name": "pressure cooker by Favourite Outer Lid Non Induction Aluminium Pressure Cooker, 3 Litres, Silver",
-                                            "brand": "Butterfly 3",
-                                            "price": "2000",
-                                            "id": "3",
-                                            "priceQuantity": "2000"
-                                        }]};
-this.totalPrice = {
-    "val": 0
-};
-var self = this;
-            this.orders.items.forEach(function(order){
-                self.totalPrice.val = self.totalPrice.val + parseInt(order.price);
-            });
-            this.address = {
-                            "area": "xxxx",
-                            "street": "xxxx",
-                            "country": "xxxx"
-                        }
             this.model.fetch({
                  success: function(r){
                      console.log("r", r)
@@ -178,7 +114,6 @@ var self = this;
                        self.render();
                    }
              })
-
             console.log("hellosss", templatee);
             console.log("page", page);
             console.log("page", pagebus);
@@ -229,8 +164,6 @@ var self = this;
 
             });
             //this.render();
-            this.incrementQuantity = this.incrementQuantity.bind(this);
-            this.decrementQuantity = this.decrementQuantity.bind(this);
         },
 
         tryLogin: function(){
@@ -293,19 +226,15 @@ var self = this;
              });
             //rivets.bind(this.el, {test: "asda"});
             //rivets.bind($('#user'), { user:user })
-
              var user = new Backbone.Model({name: 'kum'});
              console.log("sdf", user)
-             this.$el.html(templatee);
-
-             this.disclaimer = {
-                "address": "The product will be delivered to the default address, If you wish to change you can change it in your account or you can change it from the above link temporary",
-                "time": "The product will be delivered with in the mentioned period, it may take some time longer depending upon the whether conditions and the transport facility",
-                "gift": "Default the gift packing option is not added, you may add it from above. Gift pack customization is not available and if it is damaged or misplaced it can be repacked again"
-             }
+             //this.$el.html(templatee);
+             this.options.$("#main-content").html(templatee);
              var ell = document.getElementById('product_wrapper_data');
              //rivets.bind(ell, {user: this.model});
-             var ss = this.model.at(0).get('data');//this.model.get("data").review;
+             var ss = this.model.get('data');//this.model.get("data").review;
+             var result = _.groupBy(ss,"status");
+             console.log(result);
 console.log("hello", ss)
              var aarr = [];
              if(ss){
@@ -318,15 +247,9 @@ console.log("hello", ss)
              console.log("sdsdssssdd", this.model )
              rivets.bind( ell , { a : this.model ,
                 b : aarr,
-                a : ss,
+                a : result,
                 navItems: this.navItems,
-                subItems: this.selectedSubItems,
-                address: this.address,
-                orders: this.orders,
-                incrementQuantity: this.incrementQuantity,
-                decrementQuantity: this.decrementQuantity,
-                totalPrice: this.totalPrice,
-                disclaimer: this.disclaimer
+                subItems: this.selectedSubItems
              } );
 
              $('.account_login1').click(function() {
@@ -340,46 +263,8 @@ console.log("hello", ss)
                                                e.stopPropagation();
                                            });
 
-             var counterValue = document.querySelector("#counter-value");
-             var counterIncrement = document.querySelector("#counter-increment");
-             var counterDecrement = document.querySelector("#counter-decrement");
-             var count = 0;
-
-//             counterIncrement.addEventListener('click', function() {
-//               count++
-//               counterValue.setAttribute("value", count);
-//             });
-//
-//             counterDecrement.addEventListener('click', function() {
-//               count--
-//               counterValue.setAttribute("value", count);
-//             });
-
-             // Get the modal
-             var modal = document.getElementById("myModal");
-
-             // Get the button that opens the modal
-             var btn = document.getElementById("myBtn");
-
-             // Get the <span> element that closes the modal
-             var span = document.getElementsByClassName("close")[0];
-
-             // When the user clicks the button, open the modal
-             btn.onclick = function() {
-               modal.style.display = "block";
-             }
-
-             // When the user clicks on <span> (x), close the modal
-             span.onclick = function() {
-               modal.style.display = "none";
-             }
-
-             // When the user clicks anywhere outside of the modal, close it
-             window.onclick = function(event) {
-               if (event.target == modal) {
-                 modal.style.display = "none";
-               }
-             }
+             // Get the element with id="defaultOpen" and click on it
+             document.getElementById("defaultOpen").click();
 
              $("#scroll_top").click(function(){
                                            window.scrollTo(0, 0);
@@ -404,17 +289,6 @@ console.log("hello", ss)
 
           },
 
-          changeAddress: function(){
-                var area = $("#area").val();
-                var street = $("#street").val();
-                var obj = {};
-                obj.area = area,
-                obj.street = street;
-                obj.country = "USA";
-                this.address = obj;
-                this.render();
-          },
-
           themee: function(){
             $("body").removeClass("theme_white");
             $("body").addClass("theme_black");
@@ -425,21 +299,28 @@ console.log("hello", ss)
               },
 
               showLogin: function(){
-                                                          $(".account_login").show();
-                                                          $(".account_login1").show();
-                                                          var height = $("#root").height();
+                              $(".account_login").show();
+                              $(".account_login1").show();
+                              var height = $("#root").height();
 
-                                          $(".account_login").css("height", height);
-                                                        },
+              $(".account_login").css("height", height);
+                            },
+
+                            submitLogin: function(){
+                                    $.get("/login", function(data, status){
+                                        alert("Data: " + data + "\nStatus: " + status);
+                                      });
+                            },
 
           events: {
                       "click .try":          "tryLogin",
-                      "click .tryy":          "tryLoginn",
+                  "click .tryy":          "tryLoginn",
                       "click .themee": "themee",
                       "click .selectNavItems": "selectNavItems",
-                      //" .incrementQuantity": "incrementQuantity",
-                      "click .changeAddress": "changeAddress",
-                      "click .account_circle": "showLogin"
+                      "click .download": "documentDownload",
+                      "click .tablink": "openPage",
+                      "click .account_circle": "showLogin",
+                      "click .login-account": "submitLogin"
                     }
 
     });

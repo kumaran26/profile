@@ -5,12 +5,16 @@ define([
   'backbone',
   'page',
   //'pagebus',
-  'text!./template/product.html',
-  'text!./template/success.html',
+  'text!./template/parent.html',
+  //'text!./template/success.html',
   'models/model',
   'rivets',
-  './view/success',
-], function($, _$, _, Backbone, page, /*pagebus,*/ templatee, tem, model, rivets, success){
+  './view/overview',
+  './view/experience',
+  './view/skills',
+  './view/education',
+  './view/contact',
+], function($, _$, _, Backbone, page, /*pagebus,*/ templatee, /*tem,*/ model, rivets, overview, experience, skills, education, contact){
 
     rivets.adapters[':'] = {
       subscribe: function(obj, keypath, callback) {
@@ -27,7 +31,6 @@ define([
         obj.set(keypath, value);
       }
     }
-
 
     var parentView = Backbone.View.extend({
 
@@ -205,6 +208,7 @@ define([
             //     console.log(e.target.src);
             //     $("img.image_wrapper").attr('src', e.target.src)
             // })
+            this.overview = new overview(this);
           },
 
           // themee: function(){
@@ -228,6 +232,12 @@ define([
             $("#experience").css("color","white");
             $("#contact").css("background-color","#00965e");
             $("#contact").css("color","white");
+
+            if(this.education?.el){
+              this.education.render();
+            } else {
+              this.education = new education(this);
+            }
           },
 
           skills: function(e){
@@ -242,6 +252,13 @@ define([
             $("#experience").css("color","white");
             $("#contact").css("background-color","#00965e");
             $("#contact").css("color","white");
+
+            if(this.skills?.el){
+              this.skills.render();
+            } else {
+              this.skills = new skills(this);
+            }
+            
           },
 
           contact: function(e){
@@ -256,6 +273,12 @@ define([
             $("#experience").css("color","white");
             $("#skills").css("color","white");
             $("#skills").css("background-color","#00965e");
+
+            if(this.contact?.el){
+              this.contact.render();
+            } else {
+              this.contact = new contact(this);
+            }
           },
 
           experience: function(e){
@@ -270,6 +293,12 @@ define([
             $("#contact").css("color","white");
             $("#skills").css("color","white");
             $("#skills").css("background-color","#00965e");
+
+            if(this.experience?.el){
+              this.experience.render();
+            } else {
+              this.experience = new experience(this);
+            }
           },
 
           overview: function(e){
@@ -284,6 +313,10 @@ define([
             $("#contact").css("color","white");
             $("#skills").css("color","white");
             $("#skills").css("background-color","#00965e");
+
+            if(this.overview?.el){
+              this.overview.render();
+            }
           },
 
           showLogin: function(){
@@ -291,7 +324,7 @@ define([
             $(".account_login1").show();
             var height = $("#root").height();
             $(".account_login").css("height", height);//this.$el.html(tem);
-            var childView = new success(this);
+            //var childView = new success(this);
             //childView.render(); // Render the child view
             //this.$('#producttt').append(childView.el);
             //self.$("#producttt").append('<p>sdfsdf</p>');

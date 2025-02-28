@@ -6,7 +6,7 @@ define([
   'backbone',
   'page',
   'pagebus',
-  'text!../template/success.html',
+  'text!../template/contact.html',
   'cookwares',
   'rivets'
 
@@ -208,11 +208,11 @@ define([
         //rivets.bind($('#user'), { user:user })
         var user = new Backbone.Model({name: 'kum'});
         console.log("sdf", user)
-        this.options.$("#producttt").html(templatee);
+        this.options.$("#main-content").html(templatee);
         //this.$el.html(templatee);
         
-        //this.options.$("#producttt").append(this.el);
-        var ell = document.getElementById('product_wrapper_dataa');
+        //this.options.$("#main-content").append(this.el);
+        var ell = document.getElementById('main-content');
         //rivets.bind(ell, {user: this.model});
         var ss = {}//this.model.at(0).get('data');//this.model.get("data").review;
         console.log("hello", ss)

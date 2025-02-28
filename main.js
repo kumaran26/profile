@@ -30,13 +30,13 @@ require.config({
 require([
     //'domReady', // optional, using RequireJS domReady plugin
     'app',
-    './view/landing',
-    './view/summary',
-    './view/success',
-    './view/account',
-    './view/order',
+    './view/experience',
+    './view/education',
+    './view/contact',
+    './view/overview',
+    './view/skills',
 
-], function(app, landing, summary, success, account, order){
+], function(app, experience, education, contact, overview, skills){
     //domReady(function () {
         new app();
         //new landing();
