@@ -2,7 +2,23 @@
     <span class="loader"></span>
 </div> -->
 <div>
-    contact
+    <div style="width: 100%">
+        <div id="contact-form" class="container" style="width: 60%">
+            <form style="width: 100%" >
+            <label for="fname">Name</label>
+            <input type="text" id="contact-name" name="firstname" rv-value="name" placeholder="Your name..">
+            <label for="lname">Email</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="country">Reason</label>
+            <select id="country" name="country">
+                <option value="general">General</option>
+                <option value="business">Business</option>
+            </select>
+            <label class="subject" for="subject">Description</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            </form>
+        </div>
+    </div>
 </div>
 <!-- <div id="product_wrapper_dataa" style="height:auto;min-height:85vh;">
     <div id="ham">

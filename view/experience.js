@@ -259,7 +259,7 @@ this.render(mini);
          render: function(filter){
                 //this.$el.html(templatee)
                 this.options.$("#main-content").html(templatee);
-                this.products = this.model.at(0).get('data');
+                this.products = []//this.model.at(0).get('data');
                 this.products.forEach(function(e){
                     var view = parseInt(e.review);
                     var reviewStar = [];
@@ -270,7 +270,9 @@ this.render(mini);
                     e.discountedPrice = (parseInt(e.price) + ((parseInt(e.price) / 100) * parseInt(e.offer)) ).toFixed(2);
                 })
 
-
+                // setTimeout(function() {
+                //   PageBus.publish('hide_spinner');
+                //  }, 1000)
                 var ell = document.getElementById('product_wrapper_data');
                 rivets.bind( ell , { a : this.model ,
                     products : this.products,

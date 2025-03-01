@@ -10,7 +10,6 @@ define([
     'account',
     'setAccount',
     'rivets'
-
 ], function($, _$, _, Backbone, page, pagebus, templatee, model, setAccount, rivets){
 
 //Rivets Configuration with backbone
@@ -254,6 +253,9 @@ this.account["area"] = "";
              console.log("sdf", user)
              //this.$el.html(templatee);
              this.options.$("#main-content").html(templatee);
+             setTimeout(function() {
+              PageBus.publish('hide_spinner');
+             }, 1000)
              var ell = document.getElementById('main-content');
              //rivets.bind(ell, {user: this.model});
              var ss = this.model.get('data');//this.model.get("data").review;

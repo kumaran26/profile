@@ -208,6 +208,7 @@ define([
             //     console.log(e.target.src);
             //     $("img.image_wrapper").attr('src', e.target.src)
             // })
+            PageBus.publish('show_spinner');
             this.overview = new overview(this);
           },
 
@@ -294,6 +295,7 @@ define([
             $("#skills").css("color","white");
             $("#skills").css("background-color","#00965e");
 
+            //PageBus.publish('show_spinner');
             if(this.experience?.el){
               this.experience.render();
             } else {
