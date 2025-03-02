@@ -1,7 +1,7 @@
 <div id="spin" class="flex-container hide">
     <span class="loader"></span>
 </div>
-<div  style="width: 60%; margin: auto;" id="product_wrapper_data">
+<div id="parent-component" class="font-15 parent-wrapper" >
     <!-- height:auto;min-height:85vh;" id="product_wrapper_data" -->
     <!-- <div class="visible hidden nav_items_wrapper">
         <i class="material-icons icon_close font-35 f_right">close</i>
@@ -12,25 +12,25 @@
         <a class="link nav_sub_item" href="">Kitchen Storage and Containers</a></br>
     </div> -->
     <header>
-        <div style="display: flex; align-items: center; background-color: #00965e; height: 100px; color: white; font-weight: bold; font-size: large;">
-            <div style="margin-left: 50px; font-size: 25px;">KUMARAN</div>
+        <div class="header-wrapper">
+            <div class="header-text">KUMARAN</div>
         </div>
     </header>
     <nav>
-        <div style="align-items: center; height: 50px; display: flex; justify-content: space-around; background-color: #00965e; border: 1px solid white">
-            <div id="overview" style="background-color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%; display: flex; justify-content: center;">
+        <div class="nav-wrapper">
+            <div id="overview" class="nav-content" style="background-color: white;color: black;">
                 Overview
             </div>
-            <div id="experience" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+            <div id="experience" class="nav-content">
                 Experience
             </div>
-            <div id="skills" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+            <div id="skills" class="nav-content">
                 Skills
             </div>
-            <div id="education" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+            <div id="education" class="nav-content">
                 Education
             </div>
-            <div id="contact" style="color: white; height: 100%;align-items: center;border-left: 1px solid white;border-right: 1px solid white;width: 100%;display: flex; justify-content: center;">
+            <div id="contact" class="nav-content">
                 Contact
             </div>
         </div>
@@ -455,18 +455,11 @@
         </div>
     </div> -->
 </div>
-<div style="width: 60%; margin: auto;">
-    <footer style="background-color: #f6f6f6;height: 65px;display: flex; 
-    flex-direction: row; justify-content: space-between;
-    align-items: center;">
+<div class="footer-wrapper">
+    <footer class="footer-content">
         <!-- class="footer" -->
         <!-- <div id="scroll_top" class="footer-scroll">Back to top</div> -->
-        
-     <button style="margin-left: 20px;height:40px;color: #00965e; background-color: white;border: 1px solid #00965e;
-     border-radius: .5rem;font-size: 1rem;font-weight: 400;line-height: 1.5;
-     padding: .375rem .75rem;text-align: center;    vertical-align: middle;cursor: pointer;">Back</button>
-    <button id="submit" style="margin-right: 20px;height:40px;color: white; background-color: #00965e;border: 1px solid #00965e;
-    border-radius: .5rem;font-size: 1rem;font-weight: 400;line-height: 1.5;
-    padding: .375rem .75rem;text-align: center;    vertical-align: middle;cursor: pointer;">Next</button>    
+    <button class="btn-secondary">Back</button>
+    <button id="submit" class="btn-primary">Next</button>    
 </footer>
 </div>

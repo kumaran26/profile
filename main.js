@@ -14,8 +14,6 @@ require.config({
         'skills': 'models/skills',
         'overview': 'models/overview',
         'experience': 'models/experience',
-        //'setAccount': 'models/setAccount',
-        //'cookwares': 'collections/cookwares',
     },
     shim: {
      'jquery-ui': {
@@ -28,21 +26,7 @@ require.config({
 });
 
 require([
-    //'domReady', // optional, using RequireJS domReady plugin
-    'app',
-    './view/experience',
-    './view/education',
-    './view/contact',
-    './view/overview',
-    './view/skills',
-
-], function(app, experience, education, contact, overview, skills){
-    //domReady(function () {
-        new app();
-        //new landing();
-        //new summary();
-        //new success();
-        //new account();
-        //new order();
-    //});
+    'app'
+], function(app){
+    new app();
 });

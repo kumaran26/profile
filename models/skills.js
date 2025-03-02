@@ -14,7 +14,6 @@ define([
         urlRoot: 'https://profile-contact-dd155-default-rtdb.europe-west1.firebasedatabase.app/skills.json',
 
         parse: function(response){
-            console.log('sdfsdf', response);
             return response;
         }
 
