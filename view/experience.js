@@ -44,7 +44,7 @@ define([
 
 
     var firstView = Backbone.View.extend({
-        el: '#root',
+        el: 'div',
 
         template: _.template(templatee),
 
@@ -74,10 +74,8 @@ this.render();
             this.typeFilter = [];
             this.uniqType = [{"name": "New", "value": "N"}, {"name": "Old", "value": "O"}]
             var self = this;
-            console.log("rvv", model);
             this.model.fetch({
                  success: function(r){
-                     //console.log("r", r);
                     // $("#dd").text(r.get("accountNonLocked"));
                      //this.indicator = r.get("accountNonLocked");
                      //if (r2.readyState != 4 || r2.status != 200) return;

@@ -11,8 +11,8 @@ require.config({
         'page': 'libs/page',
         'slick': 'slick',
         'model': 'models/model',
-        'orders': 'models/orders',
-        'account': 'models/account',
+        'skills': 'models/skills',
+        'overview': 'models/overview',
         'setAccount': 'models/setAccount',
         'cookwares': 'collections/cookwares',
         

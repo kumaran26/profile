@@ -68,12 +68,11 @@ define([
             //  })
             PageBus.subscribe('show_spinner', null, function(){
                 console.log("asdasdsdsd");
-                $("#spin").
-                removeClass("hide");
+                $("#spin").removeClass("hide");
             });
             PageBus.subscribe('hide_spinner', null, function(){
                 console.log("asda");
-                $("#spin").hide();
+                $("#spin").addClass("hide");
             });
             $(document).ready(function(){
 
@@ -114,6 +113,7 @@ define([
 
             });
             this?.render();
+            //PageBus.publish('show_spinner');
         },
 
         tryLogin: function(){
@@ -258,6 +258,7 @@ define([
               this.skills.render();
             } else {
               this.skills = new skills(this);
+              PageBus.publish('show_spinner');
             }
             
           },
@@ -321,6 +322,31 @@ define([
             }
           },
 
+          contactSubmit: function(){
+            //$('.subject').click(function() {
+              PageBus.publish('show_spinner');
+              $.ajax({
+                type: "POST",
+                data: JSON.stringify({ 
+                  "name" : this.contact.contact.name,
+                  "email" : this.contact.contact.email,
+                  "subject" : this.contact.contact.subject,
+                  "description" : this.contact.contact.description
+                }),
+                url: "https://profile-contact-dd155-default-rtdb.europe-west1.firebasedatabase.app/contact.json",
+                crossDomain: true,
+                error: function (error) {
+                  console.log(error);
+                  PageBus.publish('hide_spinner');
+                },
+                success: function (response) {
+                  console.log(response);
+                  PageBus.publish('hide_spinner');
+                }
+              });
+            //});
+          },
+
           showLogin: function(){
             $(".account_login").show();
             $(".account_login1").show();
@@ -334,16 +360,17 @@ define([
           },
 
           events: {
-            "click .try": "tryLogin",
-            "click .tryy": "tryLoginn",
+            //"click .try": "tryLogin",
+            //"click .tryy": "tryLoginn",
             //"click .themee": "themee",
             //"click .selectNavItems": "selectNavItems",
-            "click .account_circle": "showLogin",
+            //"click .account_circle": "showLogin",
             "click #education": "education",
             "click #skills": "skills",
             "click #contact": "contact",
             "click #experience": "experience",
-            "click #overview": "overview"
+            "click #overview": "overview",
+            "click #submit": "contactSubmit",
           }
 
     });

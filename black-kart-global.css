@@ -1583,20 +1583,28 @@ div.sticky {
 
 /*----------- skills ---------*/
 
-table {
+#skill-table table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-td, th {
+#skill-table td, #skill-table th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+#education-table table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#education-table td, #education-table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 /*---------contact ------*/
