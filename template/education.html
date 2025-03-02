@@ -4,30 +4,26 @@
 <div id="education-component">
     <div style="width: 100%">
         <div style="margin-top: 20px; padding: 30px;">
-            <table id="education-table">
+            <table rv-each-item="education" id="education-table" style="margin-bottom: 30px;width: 100%;">
                 <tr>
-                    <td>University</td>
-                    <td>Maria Anders</td>
+                    <td style="white-space: nowrap;width: 1%;">University</td>
+                    <td rv-text="item.university"></td>
                 </tr>
                 <tr>
-                    <td>College</td>
-                    <td>Francisco Chang</td>
+                    <td style="white-space: nowrap;width: 1%;">College</td>
+                    <td rv-text="item.college"></td>
                 </tr>
                 <tr>
-                    <td>Qualification</td>
-                    <td>Roland Mendel</td>
+                    <td style="white-space: nowrap;width: 1%;">Qualification</td>
+                    <td rv-text="item.qualification"></td>
                 </tr>
                 <tr>
-                    <td>Specialization</td>
-                    <td>Helen Bennett</td>
+                    <td style="white-space: nowrap;width: 1%;">Specialization</td>
+                    <td rv-text="item.specialization"></td>
                 </tr>
                 <tr>
-                    <td>Year</td>
-                    <td>Yoshi Tannamuri</td>
-                </tr>
-                <tr>
-                    <td>Magazzini Alimentari Riuniti</td>
-                    <td>Giovanni Rovelli</td>
+                    <td style="white-space: nowrap;width: 1%;">Year</td>
+                    <td rv-text="item.year"></td>
                 </tr>
             </table>
         </div>

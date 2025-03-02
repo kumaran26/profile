@@ -10,12 +10,12 @@ require.config({
         'pagebus': 'libs/pagebus',
         'page': 'libs/page',
         'slick': 'slick',
-        'model': 'models/model',
+        'education': 'models/education',
         'skills': 'models/skills',
         'overview': 'models/overview',
-        'setAccount': 'models/setAccount',
-        'cookwares': 'collections/cookwares',
-        
+        'experience': 'models/experience',
+        //'setAccount': 'models/setAccount',
+        //'cookwares': 'collections/cookwares',
     },
     shim: {
      'jquery-ui': {

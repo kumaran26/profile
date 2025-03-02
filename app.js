@@ -3,18 +3,18 @@ define([
   'jquery-ui',
   'underscore',
   'backbone',
-  'page',
+  //'page',
   //'pagebus',
   'text!./template/parent.html',
   //'text!./template/success.html',
-  'models/model',
+  //'models/model',
   'rivets',
   './view/overview',
   './view/experience',
   './view/skills',
   './view/education',
   './view/contact',
-], function($, _$, _, Backbone, page, /*pagebus,*/ templatee, /*tem,*/ model, rivets, overview, experience, skills, education, contact){
+], function($, _$, _, Backbone, /*page, pagebus,*/ templatee, /*tem, model,*/ rivets, overview, experience, skills, education, contact){
 
     rivets.adapters[':'] = {
       subscribe: function(obj, keypath, callback) {
@@ -56,7 +56,7 @@ define([
                 "Kitchen Storage and Containers": ["Storage"]
             }
             this.selectedSubItems = [];
-            this.model = new model();
+            //this.model = new model();
             var self = this;
             // this.model.fetch({
             //   success: function(r){
@@ -192,7 +192,8 @@ define([
             //       });
             //     }
             //  });
-             rivets?.bind( ell , { a : this.model ,
+             rivets?.bind( ell , { 
+                //a : this.model ,
                 b : aarr,
                 navItems: this.navItems,
                 subItems: this.selectedSubItems
@@ -238,6 +239,7 @@ define([
               this.education.render();
             } else {
               this.education = new education(this);
+              PageBus.publish('show_spinner');
             }
           },
 
@@ -296,11 +298,11 @@ define([
             $("#skills").css("color","white");
             $("#skills").css("background-color","#00965e");
 
-            //PageBus.publish('show_spinner');
             if(this.experience?.el){
               this.experience.render();
             } else {
               this.experience = new experience(this);
+              PageBus.publish('show_spinner');
             }
           },
 
@@ -344,6 +346,37 @@ define([
                   PageBus.publish('hide_spinner');
                 }
               });
+              // $.ajax({
+              //   type: "POST",
+              //   data: JSON.stringify({ 
+              //     "company" : "Six Sigma Soft Solutions Pvt Ltd",
+              //     "role" : "Developer",
+              //     "customer": "Liberty Mutual",
+              //     "duration" : "Jul, 2015 – Sep 2016",
+              //     "project" : "Quote Bind &amp; Endorsement",
+              //     "description" : "The Quoting Solutions team is made up of three concurrent projects: The client team for Quote/Bind/Endorse, AQUA team, and Policy UI. The Quote, Bind, and Endorse team (QBE) is responsible for creating a new system for creating, binding, and endorsing insurance quotes for Liberty Mutual and as a part of the ongoing Integration efforts, the new system being created by the QBE team is intended to eliminate the separation between existing Safeco and Liberty Mutual systems",
+              //     "responsibilities" : [
+              //       "Understanding requirements given by the client and co-ordinate with them for clarifications",
+              //       "Involved in planning, monitoring and effort estimation",
+              //       "Coordinate and communicate with onsite team",
+              //       "Review of code &amp;test results and preparation of detailed test plan",
+              //       "Ensures the assigned tasks are completed and delivered on time and status reports are sent to client on a daily basis",
+              //       "Coordinate with service and testing team and fixing the defects",
+              //       "Showing demo to the client at the sprint end"
+              //     ],
+              //     "environment" : "AngularJS, Restful web service, Require JS, Node JS, Breeze JS, Drools, Protractor, Karma, Gulp, Jasmine, Fit-test, JShint, CSS, Bootstrap, Ant, Gradle, Continuous Integration using Jenkins"
+              //   }),
+              //   url: "https://profile-contact-dd155-default-rtdb.europe-west1.firebasedatabase.app/experience.json",
+              //   crossDomain: true,
+              //   error: function (error) {
+              //     console.log(error);
+              //     PageBus.publish('hide_spinner');
+              //   },
+              //   success: function (response) {
+              //     console.log(response);
+              //     PageBus.publish('hide_spinner');
+              //   }
+              // });
             //});
           },
 

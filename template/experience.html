@@ -1,11 +1,10 @@
 <!-- <div id="spin" class="flex-container hide">
     <span class="loader"></span>
 </div> -->
-<div>
+<div id="experience-component">
     <div style="width: 100%">
-        <div style="margin-top: 30px; margin-left: 30px; font-size: 20px;">Experience :</div>
-        <div style="margin-top: 20px; margin-left: 30px;">
-            <div>Company: TCS</div>
+        <div style="margin-top: 20px; padding: 30px;">
+            <!-- <div>Company: TCS</div>
             <div>Role : Developer</div>
             <div>Project : Car Insurance &amp; Home Insurance</div>
             <div>Description : 
@@ -30,7 +29,47 @@
             </div>
             <div>Solution Environment : 
                 <p>Site factory - BackboneJS, React, Jest, Jasmine, JShint, HTML, CSS, Bootstrap, Maven, Continuous Integration using Jenkins, Java, SONAR (code quality), FORTIFY (security)</p>
-            </div>
+            </div> -->
+            <table rv-each-item="experience" id="experience-table" style="margin-bottom: 30px;width: 100%;">
+                <tr>
+                    <td>Comapany</td>
+                    <td rv-text="item.company"></td>
+                </tr>
+                <tr>
+                    <td>Customer</td>
+                    <td rv-text="item.customer"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td rv-text="item.role"></td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td rv-text="item.duration"></td>
+                </tr>
+                <tr>
+                    <td>Project</td>
+                    <td rv-text="item.project"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td rv-text="item.description"></td>
+                </tr>
+                <tr>
+                    <td>Responsibilities</td>
+                    <td>
+                        <ul>
+                            <li rv-each-responsibility="item.responsibilities">
+                                <div rv-text="responsibility"></div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Environment</td>
+                    <td rv-text="item.environment"></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

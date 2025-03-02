@@ -4,7 +4,7 @@ define([
   'underscore',
   'backbone',
   'text!../template/education.html',
-  'cookwares',
+  'education',
   'rivets'
 ], function($, _$, _, Backbone, template, model, rivets){
 
@@ -143,17 +143,19 @@ define([
         //   "country": "xxxx"
         // }
         this.model.fetch({
-          success: function(r){
+          success: function(){
             // console.log("r", r)
             // $("#dd").text(r.get("accountNonLocked"));
             // this.indicator = r.get("accountNonLocked");
             // if (r2.readyState != 4 || r2.status != 200) return;
             // var errors = JSON.parse(r2.responseText);
             self.render();
-          },error: function(model, response) {
+            PageBus.publish('hide_spinner');
+          },error: function() {
             // console.log("aaa", model);
             // console.log("aa", response);
             self.render();
+            PageBus.publish('hide_spinner');
           }
         })
         // PageBus.subscribe('show_spinner', null, function(){
@@ -272,8 +274,7 @@ define([
         // }
         var placeholder = document.getElementById('education-component');
         //rivets.bind(ell, {user: this.model});
-        var ss = this.model.at(0).get('data');//this.model.get("data").review;
-        console.log("hello", ss)
+        var educationData = this.model.get("education");//this.model.at(0).get('data');
         // var aarr = [];
         // if(ss){
         //   var gg = parseInt(ss)
@@ -285,6 +286,7 @@ define([
         // console.log("sdsdssssdd", this.model )
         rivets.bind( placeholder , { 
           model : this.model ,
+          education: educationData,
           //b : aarr,
           //a : ss,
           // navItems: this.navItems,
