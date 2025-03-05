@@ -9,7 +9,7 @@ define([
 
         defaults: {},
 
-        initialize: function(data){},
+        initialize: function(){},
 
         urlRoot: 'https://profile-contact-dd155-default-rtdb.europe-west1.firebasedatabase.app/overview.json',
 
